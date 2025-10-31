@@ -1,24 +1,26 @@
-import type { NextConfig } from "next";
+import path from "node:path";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "**" },
-      { protocol: "http", hostname: "**" }
-    ]
+      { protocol: "http", hostname: "**" },
+    ],
   },
   typescript: {
-    ignoreBuildErrors: true
+    ignoreBuildErrors: true,
   },
   eslint: {
-    ignoreDuringBuilds: true
+    ignoreDuringBuilds: true,
   },
   experimental: {
-    appDir: true
+    appDir: true,
   },
   future: {
-    strictPostcssConfiguration: true
-  }
+    strictPostcssConfiguration: true,
+  },
 };
 
 export default nextConfig;
