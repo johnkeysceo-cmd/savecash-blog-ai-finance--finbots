@@ -1,35 +1,46 @@
 import type { NextConfig } from "next";
-import path from "node:path";
-
-const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
 const nextConfig: NextConfig = {
+  // Image configuration to allow external images from any host
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
-      },
+      { protocol: "https", hostname: "**" },
+      { protocol: "http", hostname: "**" },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+
+  // Allow TypeScript build even if there are errors
   typescript: {
     ignoreBuildErrors: true,
   },
+
+  // Skip ESLint checks during build (prevents blocking deployment)
   eslint: {
     ignoreDuringBuilds: true,
   },
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [LOADER]
-      }
-    }
-  }
+
+  // Enable experimental features if using the App Router
+  experimental: {
+    appDir: true,
+  },
+
+  // Optional: Future-proofing
+  future: {
+    strictPostcssConfiguration: true,
+  },
+
+  // Redirects, rewrites, or headers can go here if needed
+  async redirects() {
+    return [];
+  },
+
+  async rewrites() {
+    return [];
+  },
+
+  async headers() {
+    return [];
+  },
 };
 
 export default nextConfig;
