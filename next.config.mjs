@@ -15,12 +15,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    appDir: true,
-  },
-  future: {
-    strictPostcssConfiguration: true,
-  },
+  // Removed deprecated 'experimental' and 'future' keys
 };
 
 export default nextConfig;
