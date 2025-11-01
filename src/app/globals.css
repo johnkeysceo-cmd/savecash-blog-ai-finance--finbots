@@ -5,9 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tw Animate (if needed) */
-@import "tw-animate-css";
-
 /* Custom theme variables */
 :root {
   --radius: 0.625rem;
@@ -85,19 +82,14 @@
     margin: 0;
     padding: 0;
     border-width: 1px;
-    border-color: var(--border); /* safe replacement for border-border */
-    outline-color: var(--ring);  /* safe replacement for outline-ring/50 */
+    border-color: var(--border);
+    outline-color: var(--ring);
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans, system-ui, sans-serif);
   }
-}
-
-/* Hide Next.js error overlay */
-nextjs-portal {
-  display: none !important;
 }
 
 /* Keyframes */
